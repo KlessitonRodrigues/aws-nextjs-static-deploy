@@ -1,18 +1,16 @@
-import { appConfig } from '../config/config.app';
-
-type resourcesType = typeof resources;
+const stackName = 'translation-api';
 
 const resources = {
-  websiteBucket: `${appConfig.stackName}-website-bucket`,
-  originAccessIdentity: `${appConfig.stackName}-origin-access-identity`,
-  urlRewriteFunction: `${appConfig.stackName}-url-rewrite-function`,
-  distribution: `${appConfig.stackName}-distribution`,
-  bucketDeployment: `${appConfig.stackName}-bucket-deployment`,
-  domainNameOutput: `${appConfig.stackName}-domain-name-output`,
-  bucketNameOutput: `${appConfig.stackName}-bucket-name-output`,
-  domainNameExport: `${appConfig.stackName}-domain-name`,
-  bucketNameExport: `${appConfig.stackName}-bucket-name`,
+  stackName,
+  websiteBucket: `${stackName}-website-bucket`,
+  originAccessIdentity: `${stackName}-origin-access-identity`,
+  urlRewriteFunction: `${stackName}-url-rewrite-function`,
+  distribution: `${stackName}-distribution`,
+  bucketDeployment: `${stackName}-bucket-deployment`,
+  domainNameOutput: `${stackName}-domain-name-output`,
+  bucketNameOutput: `${stackName}-bucket-name-output`,
+  domainNameExport: `${stackName}-domain-name`,
+  bucketNameExport: `${stackName}-bucket-name`,
 };
 
 export { resources };
-export type { resourcesType };

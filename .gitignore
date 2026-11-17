@@ -1,3 +1,4 @@
 node_modules/
-cdk_out/
+cdk.out/
+.env
 *.env

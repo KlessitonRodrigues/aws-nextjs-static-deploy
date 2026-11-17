@@ -17,8 +17,8 @@
 ### AWS
 
 - Use src/lib/<service> for aws resources: src/lib/s3, src/lib/cloudfront
-- AWS resources names is on src/constants/constants.resources.ts: { websiteBucket: "${stackName}-website-bucket" }
-- stackName and region come from .env (STACK_NAME, AWS_REGION) via src/config/config.app.ts
+- AWS resources names is on src/constants/constants.resources.ts: { stackName, websiteBucket: "${stackName}-website-bucket" }
+- stackName is set on src/constants/constants.resources.ts; AWS credentials and AWS_REGION come from exported env vars
 
 ## Files
 
@@ -34,17 +34,14 @@
 ├── tsconfig.json                     # TypeScript configuration
 ├── .prettierrc                       # Prettier configuration
 ├── .gitignore                        # Git ignore rules
-├── .env                              # Stack name and AWS region config
 ├── yarn.lock                         # Lockfile
 └── src/
     ├── src.awsStack.ts               # CDK app entry point (cdk.json app)
     ├── src.translationApp.ts         # TranslationAppPage stack
     ├── config/
-    │   └── config.app.ts             # App config (appName, stackName, region, appPath)
+    │   └── config.app.ts             # App config (appName, region, appPath)
     ├── constants/
-    │   └── constants.resources.ts    # AWS resource names
-    ├── utils/
-    │   └── utils.env.ts              # .env loader
+    │   └── constants.resources.ts    # Stack name and AWS resource names
     └── lib/
         ├── s3/
         │   ├── s3.bucket.ts          # Private website bucket

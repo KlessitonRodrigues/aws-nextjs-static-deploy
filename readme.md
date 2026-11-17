@@ -24,9 +24,10 @@ AWS CDK stack that deploys a Next.js static export to a private S3 bucket served
 └── src/
     ├── src.awsStack.ts               # CDK app entry point
     ├── src.translationApp.ts         # TranslationAppPage stack
-    ├── config/config.app.ts          # App config (appName, stackName, region, appPath)
-    ├── constants/constants.resources.ts
-    ├── utils/utils.env.ts            # .env loader
+    ├── config/
+    │   └── config.app.ts             # App config (appName, region, appPath)
+    ├── constants/
+    │   └── constants.resources.ts    # Stack name and AWS resource names
     └── lib/
         ├── s3/                       # S3 resources
         └── cloudfront/               # CloudFront resources
@@ -35,18 +36,19 @@ AWS CDK stack that deploys a Next.js static export to a private S3 bucket served
 ## Prerequisites
 
 - Node.js + Yarn
-- AWS credentials configured
+- AWS credentials configured via exported env vars
 
 ## Setup
 
-Configure `.env` in the project root:
+Export the AWS credentials and region in your shell:
 
-```
-STACK_NAME=translation-api
-AWS_REGION=us-east-1
+```bash
+export AWS_ACCESS_KEY_ID=***
+export AWS_SECRET_ACCESS_KEY=***
+export AWS_REGION=us-east-1
 ```
 
-`STACK_NAME` and `AWS_REGION` are read via `src/config/config.app.ts` and used to name all resources (`${stackName}-website-bucket`, `${stackName}-distribution`, ...).
+The stack name is defined in `src/constants/constants.resources.ts` (`stackName`) and names all resources (`${stackName}-website-bucket`, `${stackName}-distribution`, ...).
 
 The Next.js static export must exist at `appPath` (`src/config/config.app.ts`).
 
