@@ -1,23 +1,24 @@
 {
-  "name": "authentication-app",
+  "name": "aws-nextjs-static-deploy",
+  "version": "0.1.0",
   "private": true,
-  "version": "1.0.0",
-  "repository": "git@github.com:KlessitonRodrigues/authentication-app.git",
-  "author": "klessiton <klessitom@gmail.com>",
-  "license": "MIT",
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "lint": "turbo run lint",
-    "test": "turbo run test"
+    "cdk-synt": "cdk synthesize",
+    "cdk-deploy": "cdk deploy --all"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "@types/node": "24.10.1",
+    "aws-cdk": "^2.1110.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.3"
   },
   "dependencies": {
-    "turbo": "^2.8.13"
+    "aws-cdk-lib": "2.137.0",
+    "constructs": "^10.3.0"
   },
-  "packageManager": "yarn@1.22.22",
-  "workspaces": [
-    "applications/*",
-    "packages/*",
-    "services/*"
-  ]
+  "peerDependencies": {
+    "aws-cdk-lib": "2.137.0",
+    "constructs": "^10.3.0"
+  }
 }
